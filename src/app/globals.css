@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #DC2626;
+    --secondary-red: #FF0000;
+    --background-black: #000000;
+    --background-dark: #0A0A0A;
+    --text-white: #FFFFFF;
+    --text-gray: #9CA3AF;
+    --border-dark: #1A1A1A;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: #000000;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #000000;
+    color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+/* Film grain texture */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom scrollbar - RED */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #DC2626;
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FF0000;
+}
+
+/* Selection color - RED */
+::selection {
+    background-color: #DC2626;
+    color: white;
+}
+
+/* Focus styles - RED */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #DC2626;
+    outline-offset: 4px;
+}
+
+/* Red glow effect */
+.red-glow {
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.5),
+        0 0 40px rgba(220, 38, 38, 0.3);
+}
+
+/* Intense animations */
+@keyframes redPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
+    }
+}
+
+.pulse-red {
+    animation: redPulse 2s ease-in-out infinite;
+}
+
+/* Image grayscale filter */
+.grayscale-image {
+    filter: grayscale(100%) contrast(1.1);
+    transition: filter 0.4s ease;
+}
+
+.grayscale-image:hover {
+    filter: grayscale(0%) contrast(1);
+}
+
+/* Giant numbers */
+.giant-number {
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: transparent;
+    -webkit-text-stroke: 1px #1A1A1A;
+    transition: all 0.3s ease;
+}
+
+.giant-number:hover {
+    -webkit-text-stroke: 1px #DC2626;
+}
+
+/* Magnetic button effect */
+.magnetic-btn {
+    position: relative;
+    transition: transform 0.15s ease;
+}
+
+/* Sharp corners everywhere */
+* {
+    border-radius: 0 !important;
+}
+
+/* Loading bar animation */
+@keyframes loadingBar {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    50% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    51% {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+
+    100% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+}
+
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #DC2626;
+    animation: loadingBar 2s ease-in-out infinite;
+    z-index: 10000;
+}
+
+/* Reveal animation */
+@keyframes reveal {
+    from {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+.reveal {
+    animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Fade up fast */
+@keyframes fadeUpFast {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up-fast {
+    animation: fadeUpFast 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Split text reveal */
+.split-text {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.split-text span {
+    display: inline-block;
+    animation: fadeUpFast 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
