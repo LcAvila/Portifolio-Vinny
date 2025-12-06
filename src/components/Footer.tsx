@@ -3,7 +3,7 @@
 import { Container, Typography, Box, Grid, Stack, IconButton } from '@mui/material';
 import { portfolioData } from '@/utils/constants';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import CodeIcon from '@mui/icons-material/Code';
+import LanguageIcon from '@mui/icons-material/Language';
 import { useRouter, usePathname } from 'next/navigation';
 import SocialLinks from './SocialLinks';
 
@@ -160,28 +160,18 @@ export default function Footer() {
                         pt: 4,
                         borderTop: '1px solid #1A1A1A',
                         display: 'flex',
-                        justifyContent: 'space-between',
                         alignItems: 'center',
                         flexWrap: 'wrap',
                         gap: 2,
                     }}
                 >
-                    <Typography
-                        variant="body2"
-                        sx={{
-                            color: 'text.secondary',
-                            fontSize: '0.75rem',
-                            letterSpacing: '0.05em',
-                            textTransform: 'uppercase',
-                        }}
-                    >
-                        © {new Date().getFullYear()} {portfolioData.personal.name}
-                    </Typography>
-
+                    {/* Left: Developer Credit */}
                     <Box
                         sx={{
+                            flex: { xs: '1 1 100%', md: 1 },
                             display: 'flex',
                             alignItems: 'center',
+                            justifyContent: { xs: 'center', md: 'flex-start' },
                             gap: 1,
                             color: 'text.secondary',
                             transition: 'color 0.2s',
@@ -210,23 +200,43 @@ export default function Footer() {
                                 borderRadius: '50%'
                             }}
                         >
-                            <CodeIcon sx={{ fontSize: '1rem' }} />
+                            <LanguageIcon sx={{ fontSize: '1rem' }} />
                         </IconButton>
                     </Box>
-                    <IconButton
-                        onClick={scrollToTop}
-                        sx={{
-                            border: '1px solid',
-                            borderColor: 'primary.main',
-                            color: 'primary.main',
-                            '&:hover': {
-                                bgcolor: 'primary.main',
-                                color: 'white',
-                            },
-                        }}
-                    >
-                        <ArrowUpwardIcon />
-                    </IconButton>
+
+                    {/* Center: Copyright */}
+                    <Box sx={{ flex: { xs: '1 1 100%', md: 1 }, display: 'flex', justifyContent: 'center' }}>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                color: 'text.secondary',
+                                fontSize: '0.75rem',
+                                letterSpacing: '0.05em',
+                                textTransform: 'uppercase',
+                                textAlign: 'center',
+                            }}
+                        >
+                            © {new Date().getFullYear()} {portfolioData.personal.name}
+                        </Typography>
+                    </Box>
+
+                    {/* Right: Scroll Top */}
+                    <Box sx={{ flex: { xs: '1 1 100%', md: 1 }, display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' } }}>
+                        <IconButton
+                            onClick={scrollToTop}
+                            sx={{
+                                border: '1px solid',
+                                borderColor: 'primary.main',
+                                color: 'primary.main',
+                                '&:hover': {
+                                    bgcolor: 'primary.main',
+                                    color: 'white',
+                                },
+                            }}
+                        >
+                            <ArrowUpwardIcon />
+                        </IconButton>
+                    </Box>
                 </Box>
             </Container>
         </Box>
