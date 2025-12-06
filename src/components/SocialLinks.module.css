@@ -1,0 +1,84 @@
+.card {
+  width: fit-content;
+  height: fit-content;
+  /* background-color: rgb(238, 238, 238); -- User removed card bg for footer integration */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Changed from center to align with footer text */
+  padding: 0; /* Removed padding for better fit */
+  gap: 20px;
+  /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055); -- Removed shadow */
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #1A1A1A; /* Darker bg for dark theme */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+  border: 1px solid #333; /* Added border to match theme */
+}
+
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: .3s;
+  border-color: #d62976;
+}
+
+/* facebook (replacing twitter) */
+.containerTwo:hover {
+  background-color: #1877F2;
+  transition-duration: .3s;
+  border-color: #1877F2;
+}
+
+/* tiktok (replacing linkedin) */
+.containerThree:hover {
+  background-color: #FE2C55;
+  transition-duration: .3s;
+  border-color: #FE2C55;
+}
+
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #128C7E;
+  transition-duration: .3s;
+  border-color: #128C7E;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: .3s;
+}
+
+.socialSvg {
+  width: 20px; /* Slightly larger for visibility */
+  height: 20px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
