@@ -114,7 +114,6 @@ export default function WorksSection() {
                                                         width: '60%',
                                                         height: 'auto',
                                                         objectFit: 'contain',
-                                                        objectFit: 'contain',
                                                         // filter: 'grayscale(100%) brightness(200%)', // Removed grayscale as per request
                                                         transition: 'all 0.3s ease',
                                                         // '.MuiBox-root:hover &': {
